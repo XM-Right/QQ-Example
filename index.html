@@ -1,0 +1,206 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+		<meta name="format-detection" content="tephone=no,email=no,date=no,address=no">
+		<style type="text/css">
+			span {
+				padding: 5px 5px;
+				margin: 10px;
+				display: inline-block;
+				background-color: gray;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<h1>qq</h1>
+			<mark>
+				使用前请详细阅读文档使用规则
+			</mark>
+		</header>
+		<span tapmode onclick="installed()"> installed</span>
+		<span tapmode onclick="login()"> login </span>
+		<span tapmode onclick="logout()"> logout </span>
+		<span tapmode onclick="getUserInfo()"> getUserInfo </span>
+		<span tapmode onclick="shareText()"> shareText </span>
+		<span tapmode onclick="shareImage()"> shareImage </span>
+		<span tapmode onclick="shareNews_QFriend()"> shareNews_QFriend </span>
+		<span tapmode onclick="shareNews_QZone()"> shareNews_QZone </span>
+		<span tapmode onclick="shareMusic_QFriend()"> shareMusic_QFriend </span>
+		<span tapmode onclick="shareMusic_QZone()"> shareMusic_QZone </span>
+		<span tapmode onclick="shareVideo_QFriend()"> shareVideo_QFriend </span>
+		<span tapmode onclick="shareVideo_QZone()"> shareVideo_QZone </span>
+	</body>
+	<script type="text/javascript">
+		var qq;
+		apiready = function() {
+			qq = api.require('qq');
+			api.setStatusBarStyle({
+				color : '#2390ce'
+			});
+		};
+		function installed() {
+			qq.installed(function(ret, err) {
+				if (ret.status) {
+					alert(JSON.stringify(ret))
+				} else {
+					alert(JSON.stringify(err))
+				}
+			});
+		}
+
+		function login() {
+			qq.login(function(ret, err) {
+				if (ret.status) {
+					alert(JSON.stringify(ret))
+				} else {
+					alert(JSON.stringify(err))
+				}
+			});
+		}
+
+		function logout() {
+			qq.logout(function(ret, err) {
+				if (ret.status) {
+					alert(JSON.stringify(ret))
+				} else {
+					alert(JSON.stringify(err))
+				}
+			});
+		}
+
+		function getUserInfo() {
+			qq.getUserInfo(function(ret, err) {
+				if (ret.status) {
+					alert(JSON.stringify(ret))
+				} else {
+					alert(JSON.stringify(err))
+				}
+			});
+		}
+
+		function shareText() {
+			qq.shareText({
+				text : 'testtext'
+			}, function(ret, err) {
+				if (ret.status) {
+					alert(JSON.stringify(ret))
+				} else {
+					alert(JSON.stringify(err));
+				}
+			});
+		}
+
+		function shareImage() {
+			qq.shareImage({
+				title : '分享图片',
+				description : '去海边',
+				imgPath : 'widget://res/6.jpg'
+			}, function(ret, err) {
+				if (ret.status) {
+					alert(JSON.stringify(ret))
+				} else {
+					alert(JSON.stringify(err));
+				}
+			});
+		}
+
+		function shareNews_QFriend() {
+			qq.shareNews({
+				url : 'http://www.apicloud.com',
+				title : '新闻分享',
+				description : '新闻描述',
+				imgUrl : 'widget://res/news.png',
+				type : "QFriend"
+			}, function(ret, err) {
+				if (ret.status) {
+					alert(JSON.stringify(ret))
+				} else {
+					alert(JSON.stringify(err));
+				}
+			});
+		}
+
+		function shareNews_QZone() {
+			qq.shareNews({
+				url : 'http://www.apicloud.com',
+				title : '新闻分享',
+				description : '新闻描述',
+				imgUrl : 'http://7xq864.com1.z0.glb.clouddn.com/apicloud/9ddf7d56095abd26f2c7ef72bb142563.jpg',
+				type : "QZone"
+			}, function(ret, err) {
+				if (ret.status) {
+					alert(JSON.stringify(ret))
+				} else {
+					alert(JSON.stringify(err));
+				}
+			});
+		}
+
+		function shareMusic_QFriend() {
+			qq.shareMusic({
+				url : 'http://7xq864.com1.z0.glb.clouddn.com/apicloud/591bde468d4e44b21cc225b7b6e1129a.mp3',
+				title : '桔子香水',
+				description : '任贤齐',
+				imgUrl : 'http://7xq864.com1.z0.glb.clouddn.com/apicloud/9ddf7d56095abd26f2c7ef72bb142563.jpg',
+				type : "QFriend"
+			}, function(ret, err) {
+				if (ret.status) {
+					alert(JSON.stringify(ret))
+				} else {
+					alert(JSON.stringify(err));
+				}
+			});
+		}
+
+		function shareMusic_QZone() {
+			qq.shareMusic({
+				url : 'http://7xq864.com1.z0.glb.clouddn.com/apicloud/591bde468d4e44b21cc225b7b6e1129a.mp3',
+				title : '偏爱',
+				description : '张芸京',
+				imgUrl : 'http://7xq864.com1.z0.glb.clouddn.com/apicloud/9ddf7d56095abd26f2c7ef72bb142563.jpg',
+				type : "QZone"
+			}, function(ret, err) {
+				if (ret.status) {
+					alert(JSON.stringify(ret))
+				} else {
+					alert(JSON.stringify(err));
+				}
+			});
+		}
+
+		function shareVideo_QFriend() {
+			qq.shareVideo({
+				url : 'http://7xq864.com1.z0.glb.clouddn.com/apicloud/903ca10851a482ccd1383b62abb3ec5c.mp4',
+				title : '视频',
+				description : '小燕子',
+				imgUrl : 'http://7xq864.com1.z0.glb.clouddn.com/apicloud/9ddf7d56095abd26f2c7ef72bb142563.jpg',
+				type : "QFriend"
+			}, function(ret, err) {
+				if (ret.status) {
+					alert(JSON.stringify(ret))
+				} else {
+					alert(JSON.stringify(err));
+				}
+			});
+		}
+
+		function shareVideo_QZone() {
+			qq.shareVideo({
+				url : 'http://7xq864.com1.z0.glb.clouddn.com/apicloud/903ca10851a482ccd1383b62abb3ec5c.mp4',
+				title : '视频',
+				description : '小燕子',
+				imgUrl : 'http://7xq864.com1.z0.glb.clouddn.com/apicloud/9ddf7d56095abd26f2c7ef72bb142563.jpg',
+				type : "QZone"
+			}, function(ret, err) {
+				if (ret.status) {
+					alert(JSON.stringify(ret))
+				} else {
+					alert(JSON.stringify(err));
+				}
+			});
+		}
+	</script>
+</html>
